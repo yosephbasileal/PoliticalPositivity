@@ -1,0 +1,94 @@
+<div class="col-lg-6 text-center img-responsive">
+	<h4>Positivity of Tweets (<span style="color:rgba(151,187,205,1)">@{{name1}}</span> vs.
+	<span style="color:rgba(60,70,200,1)">@{{name2}}</span>)</h4>
+	<div>
+		<canvas id="canvas1" class="img-responsive"></canvas>
+	</div>
+</div>
+<div class="col-lg-6 text-center img-responsive">
+	<h4>Personality Traits (<span style="color:rgba(151,187,205,1)">@{{name1}}</span> vs.
+	<span style="color:rgba(60,70,200,1)">@{{name2}}</span>)</h4>
+	</h4>
+	
+	<div>
+		<canvas id="canvas2" class="img-responsive"></canvas>
+	</div>
+</div>
+
+<script>
+	var linD = {
+		labels : {{lables}},
+		datasets : [
+			{
+				label: "Hillary",
+				fillColor : "rgba(151,187,205,0.2)",
+				strokeColor : "rgba(151,187,205,1)",
+				pointColor : "rgba(151,187,205,0)",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(151,187,205,0)",
+				data : {{ pos_data1 }}
+			},
+			{
+				label: "Trump",
+				fillColor : "rgba(60,70,200,0.2)",
+				strokeColor : "rgba(60,70,200,1)",
+				pointColor : "rgba(60,70,200,0)",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(60,70,200,0)",
+				data : {{ pos_data2 }}
+			}
+		]
+
+	}
+
+	var barD = {
+		labels : ["openness","conscientiousness","extraversion","agreeableness"],
+		datasets : [
+			{
+				fillColor : "rgba(151,187,205,0.2)",
+				strokeColor : "rgba(151,187,205,1)",
+				highlightFill: "rgba(220,220,220,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data : {{per_data1}}
+			},
+			{
+				fillColor : "rgba(60,70,200,0.2)",
+				strokeColor : "rgba(60,70,200,1)",
+				highlightFill : "rgba(151,187,205,0.75)",
+				highlightStroke : "rgba(151,187,205,1)",
+				data : {{per_data2}}
+			}
+		]
+	}
+
+	var op = {
+	    tooltipTemplate: "<%= value %>",
+
+	    onAnimationComplete: function()
+	    {
+	        //this.showTooltip(this.segments, true);
+
+	        //Show tooltips in bar chart (issue: multiple datasets doesnt work http://jsfiddle.net/5gyfykka/14/)
+	        //this.showTooltip(this.datasets[0].bars, true);
+
+	        //Show tooltips in line chart (issue: multiple datasets doesnt work http://jsfiddle.net/5gyfykka/14/)
+	        //this.showTooltip(this.datasets[0].points, true);  
+	    },
+
+	    tooltipEvents: [],
+
+	    showTooltips: true,
+	    responsive : true
+	}
+
+	var ct1 = document.getElementById("canvas1").getContext("2d");
+	window.myLine = new Chart(ct1).Line(linD, op);
+
+	var ct2 = document.getElementById("canvas2").getContext("2d");
+	window.myBar = new Chart(ct2).Bar(barD, {
+		responsive : true
+	});
+
+</script>

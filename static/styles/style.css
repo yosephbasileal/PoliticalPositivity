@@ -1,0 +1,27 @@
+.checked {border:solid 2px red}
+
+.disabled {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+#form1 img {
+	width: 250px;
+	height: 125px;
+}
+
+.img-cont>input{
+	margin: 0 auto;
+}
+
+.img-responsive {
+	margin: 0 auto;
+}
+
+#main-row {
+	height: 100%;
+}
+
+#submit {
+	margin: 0 auto;
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Positivity of US Presedential Candidates</title>
+		<script src="/scripts/Chart.js"></script>
+		<!-- latest minified bootstrap CSS -->
+	  <link type="text/css" rel="stylesheet" href="/static/styles/bootstrap.min.css">
+	  <!-- custom CSS for this page -->
+	  <link type="text/css" rel="stylesheet" href="/static/styles/style.css">
+	  <!-- jQuery -->
+	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	  <!-- minified bootstrap JS -->
+	  <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+	  <!-- custom JS for this page-->
+	  <script type="text/javascript" src="/scripts/script.js"></script>
+	</head>
+	<body class="unresponsive">
+		<div style="padding: 15px 5px 10px 5px; position:fixed;   top:0%;   left: 1%; background-color: #9A9898">
+			<div style="width: 60px; height: 20px; background-image: url(/static/images/indico.png); background-size: 100% 100%; margin-bottom: 10px;"></div>
+			<div style="width: 50px; height: 25px;background-image: url(/static/images/twitter.png); background-size: 100% 100%"></div>
+		</div>
+		
+
+		<div class="container-fluid" >
+			<div class="row text-center" style="padding-bottom: 2em;" >
+			<h1> POSITIVITY OF PRESEDENTIAL CANDIDATES</h1>
+			</div>
+			<form id="form1">
+				<div claas="row" id="checkboxes" >
+					<div class="col-lg-3 img-cont">
+						<img src="/static/images/trump.jpg" title="Donald Trump" id="blr1" class="img-responsive"/>
+					    <input type="checkbox" id="imgCheck1" name="imgCheck" value="realDonaldTrump" />
+					</div>
+					<div class="col-lg-3 img-cont">
+						<img src="/static/images/clinton.jpg" title="Hillary Clinton" id="blr2" class="img-responsive"/>
+					    <input type="checkbox" id="imgCheck2" name="imgCheck" value="HillaryClinton" />
+					</div>
+					<div class="col-lg-3 img-cont">
+						<img src="/static/images/sanders.jpg" title="Bernie Sanders" id="blr3" class="img-responsive" />
+					    <input type="checkbox" id="imgCheck3" name="imgCheck" value="BernieSanders" />
+					</div>
+					<div class="col-lg-3 img-cont">
+						<img src="/static/images/cruz.jpg" title="Ted Cruz" id="blr4" class="img-responsive" />
+					    <input type="checkbox" id="imgCheck4" name="imgCheck" value="tedcruz" />
+					</div>
+					<input type="submit" value="COMPARE" class="btn btn-info center-block" id="button" disabled="true"/>
+				</div>
+
+				<div style="width: 40px; height: 40px;position: fixed;   top: 60%;   left: 50%; transform: translate(-50%, -50%); background-image: url(/static/images/loading-ajax.gif); background-size: 100% 100%; display: none;" id="loading-indicator"></div>
+
+
+				<div class="row" id="graph-row" style="margin-top: 2em;">
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
