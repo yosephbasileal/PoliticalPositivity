@@ -1,0 +1,6 @@
+*.iml
+*.log
+*.pyc
+*.swo
+*.swp
+*.tmp
